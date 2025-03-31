@@ -1,12 +1,12 @@
 <GuiXml>
     <Controls>
         <TopLevelControl name="ZDAT_GUI" mouseEnabled="true" movable="true" clampedToScreen="true" tier="LOW" hidden="true ">
-            <Dimensions x="768" y="1024" />
+            <Dimensions x="960" y="1280" />
             <Anchor point="CENTER" />
             <Controls>
                 <Backdrop name="$(parent)BG" inherits="ZO_DefaultBackdrop" mouseEnabled="false" tier="LOW"/>            
                 
-                <Label name="$(parent)WindowTitle" font="ZoFontAnnounceMedium" text="Zone Dailies Achievements Tracker">
+                <Label name="$(parent)WindowTitle" font="ZoFontAnnounceMedium" text="Zone Dailies Achievement Tracker">
                     <Anchor point="TOP" relativeTo="$(parent)" relativePoint="TOP"/>
                 </Label>
 

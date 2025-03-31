@@ -31,18 +31,6 @@ function ZDAT.UI.Layout.anchorGrid(grid, anchor)
   end
 end
 
--- reverse row layout for building from right side
-function ZDAT.UI.Layout.anchorRowReverse(row, anchor)
-  for i=#row, 1, -1 do
-    local cell = row[i]
-    if i==#row then
-      cell:SetAnchor(BOTTOMRIGHT, anchor, BOTTOMRIGHT, 0, 3)
-    else
-      cell:SetAnchor(RIGHT, row[i+1], LEFT, 3, 0)
-    end
-  end
-end
-
 ------------------------------------------------------------------------------------------------------------------
 -- Refresh
 ------------------------------------------------------------------------------------------------------------------
@@ -54,8 +42,8 @@ end
 
 function ZDAT.UI.Layout.updateScreenSize()
   local w, h
-  w = 960
-  h = 1280
+  w = 1050
+  h = 750
   ZDAT_GUI:SetDrawTier(DT_LOW)
   ZDAT_GUI:SetDimensions(w, h)
 end
