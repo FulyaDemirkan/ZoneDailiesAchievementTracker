@@ -1,8 +1,6 @@
 ## Title: Zone Dailies Achievement Tracker
 ## Description: To easily track zone daily achievements 
 ## APIVersion: 101044
-## SavedVariables: ZDATSavedVariables
-## DependsOn: LibAddonMenu-2.0>=37
 ## Author: @psi-pisi
 ## Version: 1.0.0
 ## AddOnVersion: 1.0
@@ -25,3 +23,4 @@ UI/Misc.lua
 Screens/Screen.lua
 
 ZoneDailiesAchievementTracker.lua
+Bindings.xml

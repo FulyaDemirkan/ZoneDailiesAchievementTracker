@@ -3,11 +3,9 @@ ZDAT           = ZDAT or {}
 ZDAT.UI        = ZDAT.UI or {}
 ZDAT.UI.Labels = {}
 
-
 ------------------------------------------------------------------------------------------------------------------
 -- Basic Label  
 ------------------------------------------------------------------------------------------------------------------
-
 function ZDAT.UI.Labels.basic(data)
 	-- text values
 	data.w     = data.w     or 150
@@ -30,7 +28,8 @@ function ZDAT.UI.Labels.basic(data)
 	control:SetVerticalAlignment(data.vAlign)
 	control:SetText(data.t)
 	control:SetFont(data.f)
-	
+	control:SetWrapMode(1)
+
 	-- optionally add tooltip
 	if data.tt then
 		control:SetMouseEnabled(true)
@@ -46,7 +45,7 @@ function ZDAT.UI.Labels.basic(data)
 				ClearMenu()
 			elseif button == 1 then -- RMB==2, LMB==1
 				ClearMenu()
-	
+
 				if data.wayshrineId then 
 					AddMenuItem("Teleport In", function() 
 						ZDAT.UI.Layout.toggleWindow()
@@ -69,16 +68,13 @@ function ZDAT.UI.Labels.basic(data)
 	return control
 end
 
-
 -- ------------------------------------------------------------------------------------------------------------------
 -- -- Teleport Label 
 -- ------------------------------------------------------------------------------------------------------------------
-
 function ZDAT.UI.Labels.teleport(data)
 	local control = ZDAT.UI.Labels.basic(data)
 	control:SetMouseEnabled(true)
-	
-	----- ORIGINAL
+
 	control:SetHandler("OnMouseEnter", function(control) control:SetColor(unpack(ZDAT.UI.Constants.rgbWhite)) end )
 	control:SetHandler("OnMouseExit",  function(control) control:SetColor(unpack(ZDAT.UI.Constants.rgbBlue)) end )
 	control:SetHandler("OnMouseUp", function(control, button)
@@ -103,7 +99,6 @@ end
 ------------------------------------------------------------------------------------------------------------------
 -- Achievement Label  
 ------------------------------------------------------------------------------------------------------------------
-
 function ZDAT.UI.Labels.achievement(data)
 	-- default color to gray
 	data.c = ZDAT.UI.Constants.rgbGray

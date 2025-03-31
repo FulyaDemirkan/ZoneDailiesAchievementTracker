@@ -1,15 +1,13 @@
 ZDAT = ZDAT or {}
 ZDAT.name = "ZoneDailiesAchievementTracker"
+ZDAT.author = "@psi-pisi"
 
 function ZDAT:Initialize()
-  -- Register saved variables
-  ZDAT.SV = ZO_SavedVars:NewAccountWide("ZDATSavedVariables", 1, nil, {})
-  
-    -- Register Keybinding Menu
-  --ZO_CreateStringId("SI_BINDING_NAME_TOGGLE_ZDAT", "Toggle Achievement Tracker")
+  -- Register Keybinding Menu
+  ZO_CreateStringId("SI_BINDING_NAME_TOGGLE_ZDAT", "Toggle Tracker")
 
   SLASH_COMMANDS["/zdat"] = function(keyWord, argument) ZDAT.UI.Layout.toggleWindow() end
-  
+
   ZDAT.Screens.Screen.initialize()
 
   ZDAT.UI.Layout.refresh()

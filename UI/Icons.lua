@@ -6,7 +6,6 @@ ZDAT.UI.Icons = {}
 ------------------------------------------------------------------------------------------------------------------
 -- Basic Icon  
 ------------------------------------------------------------------------------------------------------------------
-
 function ZDAT.UI.Icons.basic(data)
 	data.s   = data.s or ZDAT.UI.Constants.iconSize
     data.c   = data.c or  ZDAT.UI.Constants.rgbWhite
@@ -43,11 +42,9 @@ function ZDAT.UI.Icons.basic(data)
 	return control
 end
 
-
 ------------------------------------------------------------------------------------------------------------------
 -- Achievement Icon  
 ------------------------------------------------------------------------------------------------------------------
-
 function ZDAT.UI.Icons.achievement(data)
 	-- if aid is nil, use static icon
 	if data.a==nil then 

@@ -2,8 +2,5 @@
 
 ## Description
 
-To easily track zone daily achievements 
+The Elder Scrolls Online addon to easily track zone daily achievements 
 
-## Dependencies
-
-LibAddonMenu-2.0
