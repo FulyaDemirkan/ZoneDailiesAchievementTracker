@@ -23,14 +23,25 @@ function ZDAT.Screens.Screen.initialize()
     local rows = ZDAT.Data.Achievements.GetStatus()
     for _, row in pairs(rows) do
       if row.column == 1 then
+        local current;
+        if row.tierIII.completed then
+          current = row.tierIII.id
+        elseif row.tierII.completed then
+          current = row.tierIII.id
+        elseif row.tierI.completed then
+          current = row.tierII.id
+        else
+          current = row.tierI.id
+        end
+
         t[#t+1] =  {
           ZDAT.UI.Labels.teleport{    v=_v,     t=row.zone,         w=140, c=ZDAT.UI.Constants.rgbBlue, wayshrineId=row.wayshrineId},
           ZDAT.UI.Misc.spacer{        v=_v, w=10},
           ZDAT.UI.Labels.achievement{ v=_v,     t=row.tierIII.name, w=200, a=row.tierIII.id, c=ZDAT.UI.Constants.rgbBlue},
           ZDAT.UI.Misc.spacer{        v=_v, w=10},
-          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierI.id},
-          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierII.id},
-          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierIII.id},
+          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierI.id,     l=current},
+          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierII.id,    l=current},
+          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierIII.id,   l=current},
         }
       end
     end
@@ -53,14 +64,25 @@ function ZDAT.Screens.Screen.initialize()
     local rows = ZDAT.Data.Achievements.GetStatus()
     for _, row in pairs(rows) do
       if row.column == 2 then
+        local current;
+        if row.tierIII.completed then
+          current = row.tierIII.id
+        elseif row.tierII.completed then
+          current = row.tierIII.id
+        elseif row.tierI.completed then
+          current = row.tierII.id
+        else
+          current = row.tierI.id
+        end
+
         t[#t+1] =  {
           ZDAT.UI.Labels.teleport{    v=_v,     t=row.zone,         w=140, c=ZDAT.UI.Constants.rgbBlue, wayshrineId=row.wayshrineId},
           ZDAT.UI.Misc.spacer{        v=_v, w=10},
           ZDAT.UI.Labels.achievement{ v=_v,     t=row.tierIII.name, w=200, a=row.tierIII.id, c=ZDAT.UI.Constants.rgbBlue},
           ZDAT.UI.Misc.spacer{        v=_v, w=10},
-          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierI.id},
-          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierII.id},
-          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierIII.id},
+          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierI.id,     l=current},
+          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierII.id,    l=current},
+          ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierIII.id,   l=current},
         }
       end
     end

@@ -27,7 +27,7 @@ ZDAT.Data.Achievements.DB = {
   
     { ZONE="Southern Elsweyr", CATEGORY_NAME="Dragonhold",   COLUMN=2 , ACHIEVEMENTS={ { ACHIEVEMENT_NAME="Dragonguard Operative",          WAYSHRINE_ID=407, ACHIEVEMENT_IDS={ 2610, 2611, 2612 } }, { ACHIEVEMENT_NAME="Senchal's Savior",                  WAYSHRINE_ID=402, ACHIEVEMENT_IDS={ 2613, 2614, 2615 } }, { ACHIEVEMENT_NAME="Fearsome Freelancer",             WAYSHRINE_ID=402, ACHIEVEMENT_IDS={ 2606, 2607, 2608 } } } },
   
-    { ZONE="Murkmire", CATEGORY_NAME="Murkmire",             COLUMN=2 , ACHIEVEMENTS={ { ACHIEVEMENT_NAME="Resplendent Rootmender",         WAYSHRINE_ID=377, ACHIEVEMENT_IDS={ 2350, 2351, 2352 } }, { ACHIEVEMENT_NAME="Hauling Heirlooms",                 WAYSHRINE_ID=374, ACHIEVEMENT_IDS={ 2344, 2345, 2346 } }, { ACHIEVEMENT_NAME="Heart of a Naga",                 WAYSHRINE_ID=374, ACHIEVEMENT_IDS={ 2347, 2348, 2349 } }, { ACHIEVEMENT_NAME="Friend of Murkmire",    WAYSHRINE_ID=374, ACHIEVEMENT_IDS={ 2353, 2354, 2355 } } } },
+    { ZONE="Murkmire", CATEGORY_NAME="Murkmire",             COLUMN=2 , ACHIEVEMENTS={ { ACHIEVEMENT_NAME="Resplendent Rootmender",         WAYSHRINE_ID=377, ACHIEVEMENT_IDS={ 2350, 2351, 2352 } }, { ACHIEVEMENT_NAME="Hauling Heirlooms",                 WAYSHRINE_ID=374, ACHIEVEMENT_IDS={ 2344, 2345, 2346 } }, { ACHIEVEMENT_NAME="Heart of a Naga",                 WAYSHRINE_ID=374, ACHIEVEMENT_IDS={ 2347, 2348, 2349 } } } },
   
     { ZONE="Clockwork City", CATEGORY_NAME="Clockwork City", COLUMN=2 , ACHIEVEMENTS={ { ACHIEVEMENT_NAME="Brass Fortress Quarter Master",  WAYSHRINE_ID=337, ACHIEVEMENT_IDS={ 2070, 2071, 2072 } }, { ACHIEVEMENT_NAME="Honorary Blackfeather",             WAYSHRINE_ID=337, ACHIEVEMENT_IDS={ 2065, 2066, 2067 } } } },
   
@@ -38,7 +38,6 @@ ZDAT.Data.Achievements.DB = {
 
 ZDAT.Data.Achievements.GetStatus = function()
   local status = {}
-
 
   for i, v in ipairs(ZDAT.Data.Achievements.DB) do
     for j, y in ipairs(v.ACHIEVEMENTS) do

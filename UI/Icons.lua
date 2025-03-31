@@ -84,9 +84,9 @@ function ZDAT.UI.Icons.achievement(data)
 					MAIN_MENU_KEYBOARD:ShowScene("achievements")
 				end			
 				-- set global aid for callback
-				ZDAT.ACHIEVEMENTAID = data.a
+				ZDAT.ACHIEVEMENTAID = data.l
 				-- update search box
-				ACHIEVEMENTS.contentSearchEditBox:SetText(GetAchievementName(data.a))
+				ACHIEVEMENTS.contentSearchEditBox:SetText(GetAchievementName(data.l))
 			end
 		end)
 
