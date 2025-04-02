@@ -1,6 +1,6 @@
 ## Title: Zone Dailies Achievement Tracker
 ## Description: To easily track zone daily achievements 
-## APIVersion: 101044
+## APIVersion: 101045
 ## Author: @psi-pisi
 ## Version: 1.0.0
 ## AddOnVersion: 1.0
