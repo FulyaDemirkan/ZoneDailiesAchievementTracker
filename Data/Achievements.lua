@@ -33,7 +33,43 @@ ZDAT.Data.Achievements.DB = {
   
     { ZONE="Hew's Bane", CATEGORY_NAME="Thieves Guild",      COLUMN=2 , ACHIEVEMENTS={ { ACHIEVEMENT_NAME="Professional Pilferer",          WAYSHRINE_ID=255, ACHIEVEMENT_IDS={ 1372, 1373, 1374 } }, { ACHIEVEMENT_NAME="Sophisticated Shadowfoot",          WAYSHRINE_ID=255, ACHIEVEMENT_IDS={ 1398, 1399, 1400 } } } },
     
-    { ZONE="Wrothgar", CATEGORY_NAME="Orsinium",             COLUMN=2 , ACHIEVEMENTS={ { ACHIEVEMENT_NAME="Monster Hunter of the Month",    WAYSHRINE_ID=244, ACHIEVEMENT_IDS={ 1333, 1334, 1335 } }, { ACHIEVEMENT_NAME="Wrothgar Delve Monthly",            WAYSHRINE_ID=244, ACHIEVEMENT_IDS={ 1336, 1337, 1338 } } } }
+    { ZONE="Wrothgar", CATEGORY_NAME="Orsinium",             COLUMN=2 , ACHIEVEMENTS={ { ACHIEVEMENT_NAME="Monster Hunter of the Month",    WAYSHRINE_ID=244, ACHIEVEMENT_IDS={ 1333, 1334, 1335 } }, { ACHIEVEMENT_NAME="Wrothgar Delve Monthly",            WAYSHRINE_ID=244, ACHIEVEMENT_IDS={ 1336, 1337, 1338 } }, --[[{ ACHIEVEMENT_NAME="Cosmetic Something",              WAYSHRINE_ID=244, ACHIEVEMENT_IDS={ 2112, 2112, 2112 } }]] } }
+}
+
+ZDAT.Data.Achievements.SimpleDB = {
+  3981, 3984, 4059,
+  
+  3652, 3655, 3649,
+  
+  3310, 3313, 3316,
+  
+  3062, 3059,
+  
+  2731, 2728, 2770,
+  
+  2492, 2495, 2498,
+  
+  2197, 2200, 2180,
+  
+  1879,
+  
+  3524, 3521, 3518,
+  
+  3203, 3200,
+  
+  2955, 2953, 2950, 2947,
+  
+  2612, 2615, 2608,
+  
+  2352, 2346, 2349,
+  
+  2072, 2067,
+  
+  1374, 1400,
+    
+  1335, 1338,
+
+  --2112
 }
 
 ZDAT.Data.Achievements.GetStatus = function()
@@ -79,4 +115,22 @@ ZDAT.Data.Achievements.GetStatus = function()
     end
   end
   return status
+end
+
+
+function ZDAT.Data.Achievements.ContainsAchievement(id)
+  if(ZDAT.questStatuses ~= nil) then
+      d("ZDAT.questStatuses ~= nil")
+      for i, v in ipairs(ZDAT.questStatuses) do
+          d(tostring(v ~= nil))
+          if (v ~= nil and v.id == id) then -- protects against indexing nil on next line  
+            d("true")
+            return true
+          else
+            d("false")
+            return false
+          end
+      end
+      return false
+  end
 end

@@ -42,7 +42,7 @@ end
 
 function ZDAT.UI.Layout.updateScreenSize()
   local w, h
-  w = 1050
+  w = 1100
   h = 750
   ZDAT_GUI:SetDrawTier(DT_LOW)
   ZDAT_GUI:SetDimensions(w, h)
