@@ -59,18 +59,17 @@ function ZDAT.Utils.getResetTime()
 end
 
 -- Quest Check
-function ZDAT.Utils.isDailyQuestComplete(characterId, achievementId)
-    local questStatus = ZDAT.Utils.getForChar(characterId).questStatuses[achievementId]
-
-    local resetTime = ZDAT.Utils.getResetTime()
-	local previousResetTime = resetTime - 86400
-
-    if questStatus then
+function ZDAT.Utils.isDailyQuestComplete(achievementId)
+    local questStatus = ZDAT.Utils.getForChar().questStatuses[achievementId]
+	if questStatus ~= nil then
+		local resetTime = ZDAT.Utils.getResetTime()
+		local previousResetTime = resetTime - 86400
+		d("achievement: " .. GetAchievementName(achievementId) .. " - questStatus.isCompleted: " .. tostring(questStatus.isCompleted))
         -- only count quest if it is completed and it wasn't picked up yesterday
-        if questStatus.progressDateTime > previousResetTime and questStatus.progressDateTime < resetTime then
-            return true
-        end
-    end
+        if questStatus.isCompleted and (questStatus.addedTime > previousResetTime) then
+			return true
+		end
+   end
 	return false
 end
 
@@ -89,8 +88,8 @@ function ZDAT.Utils.getPerChar()
 	return ZDAT.savedVarsPerChar
 end
 
-function ZDAT.Utils.getForChar(characterId)
-	return ZDAT.savedVarsPerChar[characterId]
+function ZDAT.Utils.getForChar()
+	return ZDAT.savedVarsPerChar[GetCurrentCharacterId()]
 end
 
 function ZDAT.Utils.getCharDefaults()

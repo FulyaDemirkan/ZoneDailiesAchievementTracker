@@ -14,6 +14,7 @@ ZoneDailiesAchievementTracker.xml
 Utils.lua
 
 Data/Achievements.lua
+Data/Quests.lua
 
 UI/Constants.lua
 UI/Layout.lua

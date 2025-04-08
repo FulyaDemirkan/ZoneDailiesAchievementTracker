@@ -139,7 +139,8 @@ function ZDAT.UI.Icons.progress(data)
 
 	-- set dynamic settings
 	ZDAT.UI.Layout.registerRefreshFn(function()
-		local dailyStatus = ZDAT.Utils.isDailyQuestComplete(GetCurrentCharacterId(), data.a)
+		local dailyStatus = ZDAT.Utils.isDailyQuestComplete(data.a)
+		d("data.a: " .. GetAchievementName(data.a) .. " - dailyStatus: " .. tostring(dailyStatus))
 		-- texture is check or box
 		control:SetTexture(dailyStatus and ZDAT.UI.Constants.texture.CHECK or ZDAT.UI.Constants.texture.BOX)
 		-- color is green or gray

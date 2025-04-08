@@ -31,26 +31,39 @@ end
 --Register Loaded Callback
 EVENT_MANAGER:RegisterForEvent(ZDAT.name, EVENT_ADD_ON_LOADED, ZDAT.OnAddOnLoaded);
 
-function ZDAT.OnAchievementUpdate(eventCode, achievementID)
-  local progress = id64(GetAchievementProgress(achievementID))
-  --d("id: " .. achievementID .. " - name: " .. GetAchievementInfo(achievementID) .. " - progress changed: " .. progress)
-  ZDAT.questStatuses = ZDAT.Utils.getForChar(GetCurrentCharacterId()).questStatuses
+function ZDAT.onQuestAdded(eventCode, journalIndex, questName, objectiveName)
+	-- if this is one of the daily quests we track, then update the quest status
+  local achievementId = ZDAT.Data.Quests.isDailyQuest(questName)
+	if achievementId ~= -1 then
+    ZDAT.questStatuses = ZDAT.Utils.getForChar(GetCurrentCharacterId()).questStatuses
 
-  for i, v in ipairs(ZDAT.Data.Achievements.SimpleDB) do
-    if(v == achievementID) then
-      ZDAT.questStatuses[achievementID] = {
-          progressDateTime = ZDAT.Utils.getCurrentTime()
-      }
-      ZDAT.Utils.getForChar(GetCurrentCharacterId()).questStatuses = ZDAT.questStatuses
-    end
-  end
-  --[[
-  for i, v in ipairs(ZDAT.questStatuses) do
-    d("v.id: " .. v.id .. " - v.progressDateTime: " .. v.progressDateTime )
-  end]]
+    ZDAT.questStatuses[achievementId] = {
+      addedTime = ZDAT.Utils.getCurrentTime(),
+      isCompleted = false
+    }
+     d("questName: " .. questName .. " is added.")
+
+	end
+  ZDAT.Utils.getForChar(GetCurrentCharacterId()).questStatuses = ZDAT.questStatuses
 end
 
-EVENT_MANAGER:RegisterForEvent(ZDAT.name, EVENT_ACHIEVEMENT_UPDATED, ZDAT.OnAchievementUpdate);
+EVENT_MANAGER:RegisterForEvent(ZDAT.name, EVENT_QUEST_ADDED, ZDAT.onQuestAdded)
+
+function ZDAT.onQuestComplete(eventCode, questName, level, previousExperience, currentExperience, championPoints, questType, instanceDisplayType)
+  local achievementId = ZDAT.Data.Quests.isDailyQuest(questName)
+	if achievementId ~= -1 then
+    ZDAT.questStatuses = ZDAT.Utils.getForChar(GetCurrentCharacterId()).questStatuses
+
+    if ZDAT.questStatuses[achievementId] ~= nil then
+      ZDAT.questStatuses[achievementId].isCompleted = true
+    end
+  end
+  d("questName: " .. questName .. " set as completed.")
+
+  ZDAT.Utils.getForChar(GetCurrentCharacterId()).questStatuses = ZDAT.questStatuses
+end
+
+EVENT_MANAGER:RegisterForEvent(ZDAT.name, EVENT_QUEST_COMPLETE, ZDAT.onQuestComplete)
 
 -- On Journal Search Result ----------------------
 ZDAT.ACHIEVEMENTAID = 0
