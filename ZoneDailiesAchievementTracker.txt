@@ -1,9 +1,10 @@
 ## Title: Zone Dailies Achievement Tracker
 ## Description: To easily track zone daily achievements 
-## APIVersion: 101045
+## APIVersion: 101046
 ## Author: @psi-pisi
 ## Version: 1.0.0
 ## AddOnVersion: 1.0
+## SavedVariables: ZoneDailiesAchievementTracker_SavedVarsAccount ZoneDailiesAchievementTracker_SavedVarsChar
 
 ## This Add-On is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates.
 ## The Elder Scrolls® and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the
@@ -13,6 +14,7 @@ ZoneDailiesAchievementTracker.xml
 Utils.lua
 
 Data/Achievements.lua
+Data/Quests.lua
 
 UI/Constants.lua
 UI/Layout.lua

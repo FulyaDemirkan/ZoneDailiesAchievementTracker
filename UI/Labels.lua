@@ -47,9 +47,9 @@ function ZDAT.UI.Labels.basic(data)
 				ClearMenu()
 
 				if data.wayshrineId then 
-					AddMenuItem("Teleport In", function() 
+					AddMenuItem("Teleport to", function() 
 						ZDAT.UI.Layout.toggleWindow()
-						d("Porting to "..data.t)
+						d(ZDAT.name .. " > Porting to "..data.t)
 						FastTravelToNode(data.wayshrineId)
 						end)
 				end
@@ -84,9 +84,15 @@ function ZDAT.UI.Labels.teleport(data)
 			ClearMenu()
 
 			if data.wayshrineId then 
+<<<<<<< HEAD
 				AddMenuItem("Teleport In", function() 
 					ZDAT.UI.Layout.toggleWindow()
 					d("Porting to "..data.t)
+=======
+				AddMenuItem("Teleport to", function() 
+					ZDAT.UI.Layout.toggleWindow()
+					d(ZDAT.name .. " > Porting to "..data.t)
+>>>>>>> 947d852 (added solstice achievements)
 					FastTravelToNode(data.wayshrineId)
 					end)
 			end
@@ -111,5 +117,23 @@ function ZDAT.UI.Labels.achievement(data)
 			end)
 	end
 
+<<<<<<< HEAD
+=======
+	if data.a then
+		ZDAT.UI.Layout.registerRefreshFn(function()
+		local description, numCompleted, numRequired = GetAchievementCriterion(data.a, 1)
+		local progress = zo_strformat("<<1>> (<<2>>/<<3>>)", ZDAT.Data.Achievements.GetAchivementName(data.a), numCompleted, numRequired)
+
+		control:SetMouseEnabled(true)
+		control:SetHandler("OnMouseEnter", function(control) 
+			ZO_Tooltips_ShowTextTooltip(control, data.tta)
+			InformationTooltip:AddLine(string.format('|%s%s|r', data.ttc, progress), data.ttf)
+			end)
+		control:SetHandler("OnMouseExit", function (control) 
+			ClearTooltip(InformationTooltip)
+			end)
+		end)
+	end
+>>>>>>> 947d852 (added solstice achievements)
 	return control
 end

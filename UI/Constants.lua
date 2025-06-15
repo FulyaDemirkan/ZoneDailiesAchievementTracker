@@ -34,7 +34,7 @@ ZDAT.UI.Constants = {
 	texture = {
 		CHECKOFF  = 'esoui/art/cadwell/checkboxicon_unchecked.dds',
 		CHECKON   = 'esoui/art/cadwell/checkboxicon_checked.dds',
-		CHECK     = "esoui/art/buttons/accept_up.dds", 
+		CHECK     = "esoui/art/buttons/accept_down.dds", 
 		BOX       = "esoui/art/buttons/swatchframe_down.dds",
 		X         = "esoui/art/buttons/decline_up.dds",
 	  },

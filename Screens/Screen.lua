@@ -10,14 +10,16 @@ function ZDAT.Screens.Screen.initialize()
     -- COLUMN 1
     -- headers
     local t = {{
-      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=140,  t="ZONE",         tt="ZONE"},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=140,  t="ZONE",         tt="Zone"},
       ZDAT.UI.Misc.spacer{  v=_v, w=10},
-      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=200,  t="ACHIEVEMENT",  tt="ACHIEVEMENT",   align=TEXT_ALIGN_CENTER},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=200,  t="ACHIEVEMENT",  tt="Achievement"},
       ZDAT.UI.Misc.spacer{  v=_v, w=10},
-      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T1",           tt="TIER I",        align=TEXT_ALIGN_CENTER},
-      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T2",           tt="TIER II",       align=TEXT_ALIGN_CENTER},
-      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T3",           tt="TIER III",      align=TEXT_ALIGN_CENTER},
-      }}
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T1",           tt="Tier I",              align=TEXT_ALIGN_CENTER},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T2",           tt="Tier II",             align=TEXT_ALIGN_CENTER},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T3",           tt="Tier III",            align=TEXT_ALIGN_CENTER},
+      ZDAT.UI.Misc.spacer{  v=_v, w=10},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="DS",           tt="Daily Status",        align=TEXT_ALIGN_CENTER},
+    }}
 
   -- create grid rows
     local rows = ZDAT.Data.Achievements.GetStatus()
@@ -42,6 +44,11 @@ function ZDAT.Screens.Screen.initialize()
           ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierI.id,     l=current},
           ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierII.id,    l=current},
           ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierIII.id,   l=current},
+<<<<<<< HEAD
+=======
+          ZDAT.UI.Misc.spacer{  v=_v, w=10},
+          ZDAT.UI.Icons.progress{     v=_v,     a=row.tierIII.id,   l=current, tt="Is completed today?"},
+>>>>>>> 947d852 (added solstice achievements)
         }
       end
     end
@@ -51,6 +58,7 @@ function ZDAT.Screens.Screen.initialize()
     -- COLUMN 2
     -- headers
     local t = {{
+<<<<<<< HEAD
       ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=140,  t="ZONE",         tt="ZONE"},
       ZDAT.UI.Misc.spacer{  v=_v, w=10},
       ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=200,  t="ACHIEVEMENT",  tt="ACHIEVEMENT"},
@@ -58,6 +66,17 @@ function ZDAT.Screens.Screen.initialize()
       ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T1",           tt="TIER I",        align=TEXT_ALIGN_CENTER},
       ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T2",           tt="TIER II",       align=TEXT_ALIGN_CENTER},
       ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T3",           tt="TIER III",      align=TEXT_ALIGN_CENTER},
+=======
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=140,  t="ZONE",         tt="Zone"},
+      ZDAT.UI.Misc.spacer{  v=_v, w=10},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=200,  t="ACHIEVEMENT",  tt="Achievement"},
+      ZDAT.UI.Misc.spacer{  v=_v, w=10},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T1",           tt="Tier I",              align=TEXT_ALIGN_CENTER},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T2",           tt="Tier II",             align=TEXT_ALIGN_CENTER},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="T3",           tt="Tier III",            align=TEXT_ALIGN_CENTER},
+      ZDAT.UI.Misc.spacer{  v=_v, w=10},
+      ZDAT.UI.Labels.basic{ v=_v,      f="ZoFontGameSmall", w=_is,  t="DS",           tt="Daily Status",        align=TEXT_ALIGN_CENTER},
+>>>>>>> 947d852 (added solstice achievements)
       }}
 
   -- create grid rows
@@ -83,9 +102,18 @@ function ZDAT.Screens.Screen.initialize()
           ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierI.id,     l=current},
           ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierII.id,    l=current},
           ZDAT.UI.Icons.achievement{  v=_v,     a=row.tierIII.id,   l=current},
+<<<<<<< HEAD
+=======
+          ZDAT.UI.Misc.spacer{  v=_v, w=10},
+          ZDAT.UI.Icons.progress{     v=_v,     a=row.tierIII.id,   l=current, tt="Is completed today?"},
+>>>>>>> 947d852 (added solstice achievements)
         }
       end
     end
     -- anchor grid
+<<<<<<< HEAD
     ZDAT.UI.Layout.anchorGrid(t, ZDAT.UI.Layout.anchor(550, 60))
+=======
+    ZDAT.UI.Layout.anchorGrid(t, ZDAT.UI.Layout.anchor(570, 60))
+>>>>>>> 947d852 (added solstice achievements)
 end

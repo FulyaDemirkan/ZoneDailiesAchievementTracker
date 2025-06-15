@@ -1,7 +1,7 @@
 <GuiXml>
     <Controls>
         <TopLevelControl name="ZDAT_GUI" mouseEnabled="true" movable="true" clampedToScreen="true" tier="LOW" hidden="true ">
-            <Dimensions x="960" y="1280" />
+            <Dimensions x="750" y="1100" />
             <Anchor point="CENTER" />
             <Controls>
                 <Backdrop name="$(parent)BG" inherits="ZO_DefaultBackdrop" mouseEnabled="false" tier="LOW"/>            

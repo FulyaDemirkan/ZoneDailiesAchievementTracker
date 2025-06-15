@@ -108,3 +108,43 @@ function ZDAT.UI.Icons.achievement(data)
 
 	return control
 end
+
+------------------------------------------------------------------------------------------------------------------
+-- Is completed for today? Icon  
+------------------------------------------------------------------------------------------------------------------
+function ZDAT.UI.Icons.progress(data)
+	-- if aid is nil, use static icon
+	if data.a==nil then 
+        -- can also use this for future AIDS, defined but doesn't exist check add following to if statement
+        -- ZDAT.utils.aidExists(data.aid)
+        data.t  = ZDAT.UI.Constants.texture.X
+		data.c  = ZDAT.UI.Constants.rgbGray
+		data.tt = 'does not exist'
+		return ZDAT.UI.Icons.basic(data)
+	end
+
+	-- create control
+	local control = ZDAT.UI.Icons.basic(data)
+
+	if data.tt then
+		control:SetMouseEnabled(true)
+		control:SetHandler("OnMouseEnter", function(control)
+			ZO_Tooltips_ShowTextTooltip(control, TEXT_ALIGN_LEFT)
+			InformationTooltip:AddLine(string.format('|%s%s|r', ZDAT.UI.Constants.hexGold, data.tt), ZDAT.UI.Constants.tooltipFont)
+			end)
+		control:SetHandler("OnMouseExit", function (control) 
+			ClearTooltip(InformationTooltip)
+			end)  
+	end		
+
+	-- set dynamic settings
+	ZDAT.UI.Layout.registerRefreshFn(function()
+		local dailyStatus = ZDAT.Utils.isDailyQuestComplete(data.a)
+		-- texture is check or box
+		control:SetTexture(dailyStatus and ZDAT.UI.Constants.texture.CHECK or ZDAT.UI.Constants.texture.BOX)
+		-- color is green or gray
+		control:SetColor(unpack(dailyStatus and ZDAT.UI.Constants.rgbGreen or ZDAT.UI.Constants.rgbGray))
+		end)
+
+	return control
+end
